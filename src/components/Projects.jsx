@@ -9,6 +9,204 @@ const STATUS_COLORS = {
   Delivered: "#C9A84C",
 };
 
+function CarouselSlide({ src, index }) {
+  const isVideo = src.toLowerCase().endsWith(".mp4");
+
+  if (isVideo) {
+    return (
+      <video
+        key={index}
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          flex: "0 0 100%",
+          width: "100%",
+          height: "auto",
+          display: "block",
+        }}
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={`Slide ${index + 1}`}
+      style={{
+        flex: "0 0 100%",
+        width: "100%",
+        height: "auto",
+        display: "block",
+      }}
+    />
+  );
+}
+
+function ImageCarousel({ images = [], color }) {
+  const [cur, setCur] = useState(0);
+  const total = images.length;
+
+  const go = (n) => setCur((n + total) % total);
+
+  if (!total) {
+    return (
+      <div
+        style={{
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
+          borderRadius: "16px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{ fontSize: "5rem", fontWeight: 700, color, opacity: 0.12 }}
+        >
+          ?
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        borderRadius: "16px",
+        width: "100%",
+        overflow: "hidden",
+        border: "1px solid var(--border)",
+        background: "var(--surface)",
+      }}
+    >
+      {/* Track */}
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          transform: `translateX(-${cur * 100}%)`,
+          transition: "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
+        }}
+      >
+        {images.map((src, i) => (
+          <CarouselSlide key={i} src={src} index={i} />
+        ))}
+      </div>
+
+      {/* Prev / Next */}
+      {total > 1 && (
+        <>
+          <button
+            onClick={() => go(cur - 1)}
+            aria-label="Previous"
+            style={{
+              position: "absolute",
+              left: "10px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "rgba(0,0,0,0.5)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              color: "#fff",
+              borderRadius: "50%",
+              width: "36px",
+              height: "36px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              zIndex: 2,
+              fontSize: "1.1rem",
+            }}
+          >
+            ‹
+          </button>
+          <button
+            onClick={() => go(cur + 1)}
+            aria-label="Next"
+            style={{
+              position: "absolute",
+              right: "10px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "rgba(0,0,0,0.5)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              color: "#fff",
+              borderRadius: "50%",
+              width: "36px",
+              height: "36px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              zIndex: 2,
+              fontSize: "1.1rem",
+            }}
+          >
+            ›
+          </button>
+        </>
+      )}
+
+      {/* Dot indicators */}
+      {total > 1 && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "10px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "6px",
+            zIndex: 2,
+          }}
+        >
+          {images.map((_, i) => (
+            <div
+              key={i}
+              onClick={() => go(i)}
+              style={{
+                width: "7px",
+                height: "7px",
+                borderRadius: "50%",
+                cursor: "pointer",
+                background:
+                  i === cur
+                    ? "rgba(255,255,255,0.9)"
+                    : "rgba(255,255,255,0.35)",
+                transform: i === cur ? "scale(1.3)" : "scale(1)",
+                transition: "all 0.2s",
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Counter */}
+      {total > 1 && (
+        <div
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "12px",
+            fontSize: "0.72rem",
+            color: "rgba(255,255,255,0.8)",
+            background: "rgba(0,0,0,0.4)",
+            padding: "3px 8px",
+            borderRadius: "20px",
+          }}
+        >
+          {cur + 1} / {total}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function FeaturedProject({ project, index }) {
   const [ref, visible] = useScrollReveal();
   const isEven = index % 2 === 0;
@@ -29,71 +227,8 @@ function FeaturedProject({ project, index }) {
       }}
       className="featured-project"
     >
-      {/* Visual card */}
       <div style={{ order: isEven ? 0 : 1 }}>
-        <div
-          style={{
-            background: "var(--surface)",
-            border: "1px solid var(--border)",
-            borderRadius: "16px",
-            aspectRatio: "4/3",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            overflow: "hidden",
-            padding: "2rem",
-          }}
-        >
-          {/* subtle mesh bg */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${color}08 0%, transparent 70%)`,
-            }}
-          />
-          <div
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "5rem",
-              fontWeight: 700,
-              color: color,
-              opacity: 0.12,
-              lineHeight: 1,
-              position: "relative",
-            }}
-          >
-            {project.title.slice(0, 1)}
-          </div>
-
-          {/* Metrics strip */}
-          {/* <div style={{
-            position: "absolute", bottom: 0, left: 0, right: 0,
-            background: "rgba(13,13,18,0.7)",
-            backdropFilter: "blur(12px)",
-            borderTop: "1px solid var(--border)",
-            padding: "1rem 1.5rem",
-            display: "flex", justifyContent: "space-around",
-          }}>
-            {project.metrics.map((m) => (
-              <div key={m.label} style={{ textAlign: "center" }}>
-                <div style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: "1.3rem", fontWeight: 700,
-                  color, lineHeight: 1,
-                }}>{m.value}</div>
-                <div style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontSize: "0.62rem", fontWeight: 500,
-                  color: "var(--text-muted)", textTransform: "uppercase",
-                  letterSpacing: "0.07em", marginTop: "0.25rem",
-                }}>{m.label}</div>
-              </div>
-            ))}
-          </div> */}
-        </div>
+        <ImageCarousel images={project.images} color={color} />
       </div>
 
       {/* Content */}

@@ -111,6 +111,12 @@ export const projects = [
     ],
     link: "https://example.com",
     github: null,
+    images: [
+      "/images/captibook1.png",
+      "/images/captibook2.png",
+      "/images/captibook3.png",
+      "/images/captibook4.png",
+    ],
   },
   {
     id: 2,
@@ -130,6 +136,7 @@ export const projects = [
     ],
     link: "https://example.com",
     github: "https://github.com",
+    images: ["/images/lis.mp4"],
   },
   {
     id: 3,
@@ -149,6 +156,7 @@ export const projects = [
     ],
     link: null,
     github: "https://github.com",
+    images: ["/images/cmms.png", "/images/cmms2.png"],
   },
   {
     id: 4,
@@ -168,6 +176,7 @@ export const projects = [
     ],
     link: null,
     github: null,
+    images: ["/images/ms.png", "/images/ms2.png"],
   },
   {
     id: 5,
@@ -187,6 +196,7 @@ export const projects = [
     ],
     link: null,
     github: null,
+    images: ["/images/bella.png"],
   },
 ];
 
@@ -210,7 +220,7 @@ export const experience = [
     location: "San Fernando City, Pampanga",
     type: "Full-time",
     highlights: [
-      "Developed and maintained modern web applications using Vue.js and Quasar.",
+      "Developed and maintained SCADA (Supervisory Control and Data Acquisition) using Vue.js and Quasar.",
       "Led rapid prototyping efforts to validate requirements and align with client expectations.",
       "Maintained high engineering standards and guided junior developers within a small team.",
     ],
