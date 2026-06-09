@@ -123,6 +123,7 @@ style.textContent = `
     .mobile-menu-btn { display: flex !important; align-items: center; }
     .featured-project { grid-template-columns: 1fr !important; gap: 2rem !important; }
     .featured-project > div { order: unset !important; }
+    .detail-hero { grid-template-columns: 1fr !important; gap: 2rem !important; }
     .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
     .form-grid { grid-template-columns: 1fr !important; }
     .experience-item { grid-template-columns: 1fr !important; gap: 1rem !important; }

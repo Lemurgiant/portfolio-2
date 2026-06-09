@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { projects } from "../data/content";
 import SectionHeader from "./shared/SectionHeader";
+import ImageCarousel from "./shared/ImageCarousel";
 import { useScrollReveal } from "../hooks/useAnimations";
 
 const STATUS_COLORS = {
@@ -9,205 +10,7 @@ const STATUS_COLORS = {
   Delivered: "#C9A84C",
 };
 
-function CarouselSlide({ src, index }) {
-  const isVideo = src.toLowerCase().endsWith(".mp4");
-
-  if (isVideo) {
-    return (
-      <video
-        key={index}
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          flex: "0 0 100%",
-          width: "100%",
-          height: "auto",
-          display: "block",
-        }}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={`Slide ${index + 1}`}
-      style={{
-        flex: "0 0 100%",
-        width: "100%",
-        height: "auto",
-        display: "block",
-      }}
-    />
-  );
-}
-
-function ImageCarousel({ images = [], color }) {
-  const [cur, setCur] = useState(0);
-  const total = images.length;
-
-  const go = (n) => setCur((n + total) % total);
-
-  if (!total) {
-    return (
-      <div
-        style={{
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
-          borderRadius: "16px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{ fontSize: "5rem", fontWeight: 700, color, opacity: 0.12 }}
-        >
-          ?
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      style={{
-        position: "relative",
-        borderRadius: "16px",
-        width: "100%",
-        overflow: "hidden",
-        border: "1px solid var(--border)",
-        background: "var(--surface)",
-      }}
-    >
-      {/* Track */}
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          transform: `translateX(-${cur * 100}%)`,
-          transition: "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
-        }}
-      >
-        {images.map((src, i) => (
-          <CarouselSlide key={i} src={src} index={i} />
-        ))}
-      </div>
-
-      {/* Prev / Next */}
-      {total > 1 && (
-        <>
-          <button
-            onClick={() => go(cur - 1)}
-            aria-label="Previous"
-            style={{
-              position: "absolute",
-              left: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "rgba(0,0,0,0.5)",
-              border: "1px solid rgba(255,255,255,0.15)",
-              color: "#fff",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              zIndex: 2,
-              fontSize: "1.1rem",
-            }}
-          >
-            ‹
-          </button>
-          <button
-            onClick={() => go(cur + 1)}
-            aria-label="Next"
-            style={{
-              position: "absolute",
-              right: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "rgba(0,0,0,0.5)",
-              border: "1px solid rgba(255,255,255,0.15)",
-              color: "#fff",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              zIndex: 2,
-              fontSize: "1.1rem",
-            }}
-          >
-            ›
-          </button>
-        </>
-      )}
-
-      {/* Dot indicators */}
-      {total > 1 && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: "10px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            display: "flex",
-            gap: "6px",
-            zIndex: 2,
-          }}
-        >
-          {images.map((_, i) => (
-            <div
-              key={i}
-              onClick={() => go(i)}
-              style={{
-                width: "7px",
-                height: "7px",
-                borderRadius: "50%",
-                cursor: "pointer",
-                background:
-                  i === cur
-                    ? "rgba(255,255,255,0.9)"
-                    : "rgba(255,255,255,0.35)",
-                transform: i === cur ? "scale(1.3)" : "scale(1)",
-                transition: "all 0.2s",
-              }}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Counter */}
-      {total > 1 && (
-        <div
-          style={{
-            position: "absolute",
-            top: "10px",
-            right: "12px",
-            fontSize: "0.72rem",
-            color: "rgba(255,255,255,0.8)",
-            background: "rgba(0,0,0,0.4)",
-            padding: "3px 8px",
-            borderRadius: "20px",
-          }}
-        >
-          {cur + 1} / {total}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function FeaturedProject({ project, index }) {
+function FeaturedProject({ project, index, onSelectProject }) {
   const [ref, visible] = useScrollReveal();
   const isEven = index % 2 === 0;
   const color = STATUS_COLORS[project.status] || "var(--text-muted)";
@@ -367,7 +170,7 @@ function FeaturedProject({ project, index }) {
           ))}
         </div>
 
-        <div style={{ display: "flex", gap: "1.5rem" }}>
+        <div style={{ display: "flex", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
           {project.link && (
             <a
               href={project.link}
@@ -411,13 +214,38 @@ function FeaturedProject({ project, index }) {
               GitHub →
             </a>
           )}
+          <button
+            onClick={() => onSelectProject(project.id)}
+            style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "0.82rem",
+              fontWeight: 600,
+              color: "var(--text-muted)",
+              background: "none",
+              border: "1px solid var(--border)",
+              borderRadius: "6px",
+              cursor: "pointer",
+              padding: "0.4rem 0.9rem",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--text-primary)";
+              e.currentTarget.style.borderColor = "var(--border-light)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "var(--text-muted)";
+              e.currentTarget.style.borderColor = "var(--border)";
+            }}
+          >
+            Case Study →
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onSelectProject }) {
   const [ref, visible] = useScrollReveal();
   const [hovered, setHovered] = useState(false);
   const color = STATUS_COLORS[project.status] || "var(--text-muted)";
@@ -441,6 +269,8 @@ function ProjectCard({ project }) {
         opacity: visible ? 1 : 0,
         boxShadow: hovered ? "0 16px 48px rgba(0,0,0,0.35)" : "none",
         cursor: "default",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <div
@@ -544,6 +374,9 @@ function ProjectCard({ project }) {
           gap: "1.25rem",
           paddingTop: "1rem",
           borderTop: "1px solid var(--border)",
+          alignItems: "center",
+          flexWrap: "wrap",
+          marginTop: "auto",
         }}
       >
         {project.link && (
@@ -577,12 +410,37 @@ function ProjectCard({ project }) {
             GitHub →
           </a>
         )}
+        <button
+          onClick={() => onSelectProject(project.id)}
+          style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: "0.78rem",
+            fontWeight: 600,
+            color: "var(--text-muted)",
+            background: "none",
+            border: "1px solid var(--border)",
+            borderRadius: "6px",
+            cursor: "pointer",
+            padding: "0.35rem 0.8rem",
+            transition: "color 0.2s, border-color 0.2s",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "var(--text-primary)";
+            e.currentTarget.style.borderColor = "var(--border-light)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "var(--text-muted)";
+            e.currentTarget.style.borderColor = "var(--border)";
+          }}
+        >
+          Case Study →
+        </button>
       </div>
     </div>
   );
 }
 
-export default function Projects() {
+export default function Projects({ onSelectProject }) {
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
 
@@ -597,7 +455,12 @@ export default function Projects() {
         subtitle="High-impact work across engineering, leadership, and consulting."
       />
       {featured.map((project, i) => (
-        <FeaturedProject key={project.id} project={project} index={i} />
+        <FeaturedProject
+          key={project.id}
+          project={project}
+          index={i}
+          onSelectProject={onSelectProject}
+        />
       ))}
       {others.length > 0 && (
         <>
@@ -637,7 +500,11 @@ export default function Projects() {
             }}
           >
             {others.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onSelectProject={onSelectProject}
+              />
             ))}
           </div>
         </>
