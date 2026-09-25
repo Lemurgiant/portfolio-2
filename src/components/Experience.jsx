@@ -171,7 +171,7 @@ export default function Experience() {
         />
         {experience.map((job, i) => (
           <ExperienceItem key={job.company} job={job} index={i} />
-        ))}
+        )).reverse()}
       </div>
     </section>
   );

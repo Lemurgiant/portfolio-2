@@ -10,7 +10,7 @@ export const personal = {
   bio: "I'm a full-stack engineer with 2+ years of experience building scalable products and solving business problems through software. I operate across both engineering and strategy — turning complex requirements into practical, maintainable systems while communicating clearly with clients and stakeholders.",
   email: "aquinomarlonjoseph@gmail.com",
   phone: "+63 991 720 5532",
-  location: "Angeles, Pampanga",
+  location: "Pampanga, Philippines",
   availability: "Open to new opportunities",
   initials: "MJ",
   avatarUrl: "/images/my-photo.jpg", // Set to your image URL or import path to replace the placeholder, e.g. "/my-photo.jpg"
@@ -41,11 +41,11 @@ export const skills = [
     description:
       "Full-stack systems design, API architecture, and performance engineering.",
     items: [
-      { name: "React / Next.js", level: 86 },
+      { name: "React / Next.js", level: 98 },
       { name: "Vue / Quasar", level: 94 },
       { name: "Javascript / Typescript", level: 95 },
       { name: "MongoDB / NoSQL", level: 92 },
-      { name: "Node.js / Elysia.js", level: 90 },
+      { name: "Node.js / Elysia.js", level: 91 },
     ],
   },
   {
@@ -56,10 +56,10 @@ export const skills = [
       "End-to-end delivery ownership — from discovery to production.",
     items: [
       { name: "Agile / Scrum", level: 93 },
-      { name: "Roadmap Planning", level: 88 },
+      { name: "Roadmap Planning", level: 91 },
       { name: "Risk Management", level: 92 },
       // { name: "OKR Frameworks", level: 80 },
-      { name: "Stakeholder Alignment", level: 87 },
+      { name: "Stakeholder Alignment", level: 92 },
     ],
   },
   {
@@ -71,9 +71,9 @@ export const skills = [
     items: [
       { name: "Technical Consulting", level: 92 },
       { name: "Requirement Discovery", level: 94 },
-      { name: "Prototyping", level: 87 },
-      { name: "Proper Scoping", level: 89 },
-      { name: "Conflict Resolution", level: 86 },
+      { name: "Prototyping", level: 92 },
+      { name: "Proper Scoping", level: 92 },
+      { name: "Conflict Resolution", level: 90 },
     ],
   },
   // {
@@ -109,7 +109,7 @@ export const projects = [
       // { label: "Enterprise clients", value: "12" },
       // { label: "Integrations shipped", value: "30+" },
     ],
-    link: "https://example.com",
+    link: "https://captibookfinal-2.onrender.com/",
     github: null,
     images: [
       "/images/captibook1.png",
@@ -134,7 +134,7 @@ export const projects = [
       // { label: "Weekly downloads", value: "18k" },
       // { label: "Contributors", value: "34" },
     ],
-    link: null,
+    link: "https://cmms-z4xj.onrender.com/",
     github: "https://github.com",
     images: ["/images/cmms.png", "/images/cmms2.png"],
   },
@@ -154,7 +154,7 @@ export const projects = [
       { label: "Downtime during migration", value: "0" },
       { label: "Performance improvement", value: "4×" },
     ],
-    link: null,
+    link: "https://aigf-fe.vercel.app/", // ?key=df2fb23702974f8d8f5c2f78d1646b82
     github: null,
     images: ["/images/aicomp.png"],
   },
@@ -174,7 +174,7 @@ export const projects = [
       { label: "Downtime during migration", value: "0" },
       { label: "Performance improvement", value: "4×" },
     ],
-    link: null,
+    link: "https://vetdesk-flame.vercel.app/",
     github: null,
     images: ["/images/vet.png", "/images/vetlyt.png"],
   },
@@ -194,7 +194,7 @@ export const projects = [
       { label: "Downtime during migration", value: "0" },
       { label: "Performance improvement", value: "4×" },
     ],
-    link: null,
+    link: "https://osha-one.vercel.app/",
     github: null,
     images: ["/images/safeops.png", "/images/safeopslyt.png"],
   },
@@ -214,25 +214,50 @@ export const projects = [
       { label: "Downtime during migration", value: "0" },
       { label: "Performance improvement", value: "4×" },
     ],
-    link: null,
+    link: "https://round-delta-ten.vercel.app/",
     github: null,
     images: ["/images/careops.png", "/images/careopslyt.png"],
+  },
+  {
+    id: 7,
+    title: "CoreSTED",
+    subtitle: "Healthcare SNF Platform",
+    description:
+      "Corested covers admissions, resident records, room & bed management, staff scheduling, and staffing-risk tracking.",
+    tags: ["React", "SurveyJS", "OpenAI API", "Claude Code"],
+    role: "Software Developer",
+    year: "2026",
+    status: "Live",
+    featured: true,
+    metrics: [
+      { label: "Ahead of schedule", value: "6 wks" },
+      { label: "Downtime during migration", value: "0" },
+      { label: "Performance improvement", value: "4×" },
+    ],
+    link: null,
+    github: null,
+    images: [
+      "/images/corested1.png",
+      "/images/corested2.png",
+      "/images/corested3.png",
+      "/images/corested4.png",
+    ],
   },
 ];
 
 export const experience = [
-  {
-    company: "Desco INC",
-    role: "Full-Stack Developer",
-    period: "Jul 2024 - Aug 2024",
-    location: "Remote",
-    type: "Contract",
-    highlights: [
-      "Developed systems that streamlined operational workflows and improved efficiency.",
-      "Translated complex functionality into intuitive, user-friendly interfaces.",
-      "Maintained clean and scalable database structures to support long-term growth.",
-    ],
-  },
+  // {
+  //   company: "Desco INC",
+  //   role: "Full-Stack Developer",
+  //   period: "Jul 2024 - Aug 2024",
+  //   location: "Remote",
+  //   type: "Contract",
+  //   highlights: [
+  //     "Developed systems that streamlined operational workflows and improved efficiency.",
+  //     "Translated complex functionality into intuitive, user-friendly interfaces.",
+  //     "Maintained clean and scalable database structures to support long-term growth.",
+  //   ],
+  // },
   {
     company: "Information Technology Business Solutions",
     role: "Front-end Developer",
@@ -248,7 +273,7 @@ export const experience = [
   {
     company: "Fidus Resource Management",
     role: "Full-stack Developer & Project Manager",
-    period: "Apr 2025 - May 2026",
+    period: "Apr 2025 - Sep 2026",
     location: "Remote",
     type: "Contract",
     highlights: [

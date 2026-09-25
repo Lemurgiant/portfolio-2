@@ -24,7 +24,8 @@ export const descriptions = {
 
   2: {
     industry: "Fleet Management / Industrial Operations",
-    headline: "Centralizing vehicle and equipment records for multi-site construction operations",
+    headline:
+      "Centralizing vehicle and equipment records for multi-site construction operations",
     problem:
       "Operations teams managing mixed fleets of vehicles and heavy equipment across multiple construction project sites lacked a unified system — maintenance history, inspection logs, certifications, and supporting documents were scattered across paper records.",
     solution:
@@ -144,6 +145,41 @@ export const descriptions = {
       "Audit trail with full CSV export for compliance officer review",
       "Custom form builder restricted to IT Admin and Super Admin accounts",
       "Real-time compliance analytics with 5-week trend charts per form type",
+    ],
+  },
+
+  7: {
+    industry: "Workflow Automation & Internal Tools",
+
+    headline:
+      "Internal tools and workflow automation that eliminate repetitive admin work and surface operational problems before they become expensive",
+
+    problem:
+      "Businesses outgrowing spreadsheets, paper records, and disconnected apps needed a reliable way to centralize operational data, eliminate repetitive manual work, and identify bottlenecks before they became urgent problems.",
+
+    solution:
+      "Built Corested, a full operations platform for skilled nursing facilities, alongside a process-first workflow for diagnosing operational bottlenecks and building focused internal tools — covering facility operations, admissions, resident records, room and bed management, staff scheduling, staffing-risk tracking, AI-assisted reporting, and role-based access control.",
+
+    outcomes: [
+      "Real-time operations dashboard surfacing admissions, room issues, equipment status, and staffing risks in one view",
+      "Structured admissions pipeline from Created → Waitlist → Pre-admission → Active → Discharged with a centralized digital resident record",
+      "Room and bed roster showing occupancy, condition, billing, and reimbursement details in real time",
+      "Monthly staff scheduling grid automatically flagging overtime, double-shift, and approaching-overtime risks",
+      "AI-assisted reporting designed to reduce report preparation time by approximately 60% by generating first-pass reports from existing operational records",
+      "Granular role-based access control designed to give each staff role access only to the operational and resident data required for its function",
+    ],
+
+    capabilities: [
+      "Process auditing and workflow mapping before development",
+      "Operational bottleneck identification across manual and disconnected workflows",
+      "Real-time facility operations dashboards",
+      "Digital admissions pipelines and centralized records",
+      "Room, bed, occupancy, condition, and billing management",
+      "Staff scheduling with automated overtime and staffing-risk detection",
+      "AI-assisted operational and clinical report drafting",
+      "Background automation agents for repetitive operational tasks",
+      "Role-based access control for sensitive operational and resident data",
+      "Iterative internal-tool development based on real-world team usage",
     ],
   },
 };
