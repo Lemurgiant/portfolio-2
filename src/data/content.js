@@ -271,22 +271,20 @@ export const experience = [
     location: "San Fernando City, Pampanga",
     type: "Full-time",
     highlights: [
-      "Developed and maintained SCADA (Supervisory Control and Data Acquisition) using Vue.js and Quasar.",
-      "Led rapid prototyping efforts to validate requirements and align with client expectations.",
-      "Maintained high engineering standards and guided junior developers within a small team.",
+      "Handled large-scale SCADA systems in an IT company, working directly with the CEO and Senior Developers while also assisting Junior Developers in delivering their work.",
+      "Worked on industrial monitoring and control software through rapid prototyping and close collaboration with senior technical and business stakeholders.",
     ],
   },
+
   {
-    company: "Fidus Resource Management",
+    company: "SNF Healthcare Nursing Facility",
     role: "Full-stack Developer & Project Manager",
     period: "Apr 2025 - Sep 2026",
     location: "Remote",
     type: "Contract",
     highlights: [
-      "Handled vague scoping and evolving requirements through Agile workflows and rapid communication cycles.",
-      "Built software with enterprise-grade scalability and long-term maintainability.",
-      "Integrated AI capabilities and external technologies into core product workflows.",
-      "Tracked project progress using project management tools to provide clear visibility into deliverables.",
+      "Worked directly with an international 100-bed skilled nursing facility, developing a system around its broader operations — from patient admissions and resident records to room and bed management, staff scheduling, and staffing-risk tracking.",
+      "Handled evolving requirements and stakeholder feedback across a complex healthcare workflow, taking responsibility for both software development and project coordination while integrating AI and external technologies into the system.",
     ],
   },
 ];
