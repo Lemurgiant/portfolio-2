@@ -149,37 +149,39 @@ export const descriptions = {
   },
 
   7: {
-    industry: "Workflow Automation & Internal Tools",
+    industry: "Healthcare Operations & Workflow Systems",
 
     headline:
-      "Internal tools and workflow automation that eliminate repetitive admin work and surface operational problems before they become expensive",
+      "Operational software that turns complex, manual workflows into structured systems — giving teams real-time visibility before operational problems become costly",
 
     problem:
-      "Businesses outgrowing spreadsheets, paper records, and disconnected apps needed a reliable way to centralize operational data, eliminate repetitive manual work, and identify bottlenecks before they became urgent problems.",
+      "A 100-bed skilled nursing facility was operating across paper intake, scattered department files, manual scheduling, and disconnected operational records. The challenge was not simply replacing spreadsheets — it was translating the facility's actual workflow into a system that could centralize resident information, admissions, staffing, room and bed operations, and risk signals in one place.",
 
     solution:
-      "Built Corested, a full operations platform for skilled nursing facilities, alongside a process-first workflow for diagnosing operational bottlenecks and building focused internal tools — covering facility operations, admissions, resident records, room and bed management, staff scheduling, staffing-risk tracking, AI-assisted reporting, and role-based access control.",
+      "Designed and built Corested, a working SNF operations platform around the facility's real workflow — covering admissions, resident records, MDS tracking, room and bed management, staff scheduling, staffing-risk detection, AI-assisted reporting, and role-based access control. The system was developed through workflow auditing, process mapping, stakeholder review, and iterative prototyping rather than building features in isolation.",
 
     outcomes: [
-      "Real-time operations dashboard surfacing admissions, room issues, equipment status, and staffing risks in one view",
+      "Real-time operations dashboard surfacing admissions, occupancy, equipment issues, and staffing risks in one operational view",
       "Structured admissions pipeline from Created → Waitlist → Pre-admission → Active → Discharged with a centralized digital resident record",
-      "Room and bed roster showing occupancy, condition, billing, and reimbursement details in real time",
-      "Monthly staff scheduling grid automatically flagging overtime, double-shift, and approaching-overtime risks",
+      "Digital resident records consolidating Face Sheet, MDS, Care Plan, Nurse's Notes, labs, and immunization information",
+      "Room and bed roster providing a centralized view of occupancy, condition, billing, and reimbursement-related information",
+      "Monthly staff scheduling grid designed to surface overtime, double-shift, absenteeism, tardiness, and approaching-overtime risks while schedules are being built",
       "AI-assisted reporting designed to reduce report preparation time by approximately 60% by generating first-pass reports from existing operational records",
-      "Granular role-based access control designed to give each staff role access only to the operational and resident data required for its function",
+      "Granular role-based access control designed to restrict sensitive resident and operational data according to staff responsibilities",
     ],
 
     capabilities: [
-      "Process auditing and workflow mapping before development",
-      "Operational bottleneck identification across manual and disconnected workflows",
+      "Operational workflow auditing before development",
+      "Process mapping across paper-based and disconnected workflows",
+      "Bottleneck and operational-risk identification",
+      "Healthcare admissions and resident-record systems",
       "Real-time facility operations dashboards",
-      "Digital admissions pipelines and centralized records",
-      "Room, bed, occupancy, condition, and billing management",
-      "Staff scheduling with automated overtime and staffing-risk detection",
+      "Room, bed, occupancy, condition, billing, and reimbursement tracking",
+      "Staff scheduling and automated staffing-risk detection",
       "AI-assisted operational and clinical report drafting",
-      "Background automation agents for repetitive operational tasks",
-      "Role-based access control for sensitive operational and resident data",
-      "Iterative internal-tool development based on real-world team usage",
+      "Background automation for repetitive operational tasks",
+      "Role-based access control for sensitive resident and operational data",
+      "Stakeholder-driven iterative prototyping and scope validation",
     ],
   },
 };

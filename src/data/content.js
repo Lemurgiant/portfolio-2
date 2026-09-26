@@ -6,8 +6,14 @@
 export const personal = {
   name: "Marlon Aquino",
   title: "Full-Stack Software Developer",
-  tagline: "Building systems that scale.\nLeading teams that ship.",
-  bio: "I'm a full-stack engineer with 2+ years of experience building scalable products and solving business problems through software. I operate across both engineering and strategy — turning complex requirements into practical, maintainable systems while communicating clearly with clients and stakeholders.",
+  tagline: "",
+  bio: `
+Full-stack developer with 2+ years building software for real operational environments — from industrial
+SCADA to healthcare operations. In 2024, I began pursuing software development professionally and
+left college to gain real-world experience directly. Worked with the CEO and Senior Developers while
+also helping Junior Developers deliver. For an international 100-bed skilled nursing facility, built a
+system spanning admissions, resident operations, staffing, and revenue-related MDS workflows —
+exposing me to systems where software affects patient operations, compliance, staffing, and revenue.`,
   email: "aquinomarlonjoseph@gmail.com",
   phone: "+63 991 720 5532",
   location: "Pampanga, Philippines",
@@ -221,18 +227,18 @@ export const projects = [
   {
     id: 7,
     title: "CoreSTED",
-    subtitle: "Healthcare SNF Platform",
+    subtitle: "Healthcare SNF Operations Platform",
     description:
-      "Corested covers admissions, resident records, room & bed management, staff scheduling, and staffing-risk tracking.",
+      "A 100-bed skilled nursing facility operations platform built around real facility workflows — covering patient admissions, resident records, MDS tracking, room & bed management, staff scheduling, and staffing-risk tracking.",
     tags: ["React", "SurveyJS", "OpenAI API", "Claude Code"],
     role: "Software Developer",
     year: "2026",
     status: "Live",
     featured: true,
     metrics: [
-      { label: "Ahead of schedule", value: "6 wks" },
-      { label: "Downtime during migration", value: "0" },
-      { label: "Performance improvement", value: "4×" },
+      { label: "Facility scale", value: "100 beds" },
+      { label: "Workflow areas", value: "6+" },
+      { label: "Core operations", value: "Admissions → Staffing" },
     ],
     link: null,
     github: null,
