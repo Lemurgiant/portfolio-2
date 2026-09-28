@@ -8,7 +8,7 @@ export const personal = {
   title: "Full-Stack Software Developer",
   tagline: "",
   bio: `
-Full-stack developer with 2+ years building software for real operational environments — from industrial
+Full-stack developer with 3+ years building software for real operational environments — from industrial
 SCADA to healthcare operations. In 2024, I began pursuing software development professionally and
 left college to gain real-world experience directly. Worked with the CEO and Senior Developers while
 also helping Junior Developers deliver. For an international 100-bed skilled nursing facility, built a
@@ -33,8 +33,8 @@ exposing me to systems where software affects patient operations, compliance, st
 };
 
 export const stats = [
-  { value: 2, suffix: "+", label: "Years of Experience" },
-  { value: 4, suffix: "+", label: "Projects Delivered" },
+  { value: 3, suffix: "+", label: "Years of Experience" },
+  { value: 6, suffix: "+", label: "Projects Delivered" },
   { value: 99, suffix: "%", label: "Client Satisfaction" },
   { value: 8, suffix: "", label: "Team Members Led" },
 ];
